@@ -1,4 +1,15 @@
+"""
+load_data.py
+
+This module contains functions and classes for loading
+data files required for the stdev price conversion pipeline.
+"""
+
 import pandas as pd
+from scripts.project_root import add_project_root
+add_project_root()
+
+from scripts.config import Config
 
 class StdevDataLoader:
     """
@@ -10,7 +21,7 @@ class StdevDataLoader:
     - Provide a simple data inspection method to check shape, columns, NaNs, and stats.
     """
 
-    def __init__(self, config):
+    def __init__(self, config: Config) -> None:
         """
         Initialize the loader with a config object.
 
@@ -19,7 +30,7 @@ class StdevDataLoader:
         """
         self.config = config
 
-    def load_data(self):
+    def load_data(self) -> pd.DataFrame:
         """
         Load the stdev_price_data parquet file as a pandas DataFrame.
 

@@ -13,7 +13,7 @@
     "timestamp_col": "snap_time"
   },
   "output_file": {
-    "path": "data/output_stdev.csv",
+    "path": "results/output_stdev.csv",
     "type": "csv",
     "read_args": {
       "sep": ",",
