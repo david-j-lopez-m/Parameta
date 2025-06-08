@@ -1,0 +1,37 @@
+{
+  "data": {
+    "ccy_file": {
+      "path": "data/rates_ccy_data.csv",
+      "type": "csv",
+      "read_args": {
+        "sep": ",",
+        "encoding": "utf-8"
+      }
+    },
+    "price_file": {
+      "path": "data/rates_price_data.parq.gzip",
+      "type": "parquet"
+    },
+    "spot_file": {
+      "path": "data/rates_spot_rate_data.parq.gzip",
+      "type": "parquet"
+    }
+  },
+  "output_file": {
+    "path": "data/output_prices.csv",
+    "type": "csv",
+    "read_args": {
+      "sep": ",",
+      "encoding": "utf-8"
+    }
+  },
+  "timestamp_format": "%Y-%m-%d %H:%M:%S.%f",
+  "columns": {
+    "timestamp": "timestamp",
+    "price": "price",
+    "ccy_pair": "ccy_pair",
+    "spot_rate": "spot_mid_rate",
+    "conversion_factor": "conversion_factor",
+    "convert_price": "convert_price"
+  }
+}
