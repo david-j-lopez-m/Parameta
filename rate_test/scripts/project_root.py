@@ -7,7 +7,7 @@ Sets up the root of the project dynamically so scripts can import modules cleanl
 import sys
 from pathlib import Path
 
-def add_project_root():
+def add_project_root() -> None:
     """
     Adds the root of the project (the directory containing 'scripts/') to sys.path.
     """

@@ -10,7 +10,7 @@ Contains a class for converting FX prices based on conversion rules and spot rat
 import pandas as pd
 
 class PriceConverter:
-    def __init__(self, config, ccy_df, price_df, spot_df):
+    def __init__(self, config, ccy_df: pd.DataFrame, price_df: pd.DataFrame, spot_df: pd.DataFrame):
         """
         Initializes the PriceConverter.
 
@@ -26,7 +26,7 @@ class PriceConverter:
         self.spot_df = spot_df.copy()
         self.result_df = None
 
-    def merge_conversion_info(self):
+    def merge_conversion_info(self) -> None:
         """
         Merge conversion rules (whether to convert and conversion factor)
         into the price data based on ccy_pair.
@@ -47,7 +47,7 @@ class PriceConverter:
             self.price_df[self.config.columns.convert_price].fillna(False).astype(bool)
         )
 
-    def match_spot_rates(self):
+    def match_spot_rates(self) -> None:
         """
         For rows requiring conversion, find the most recent spot rate
         within the hour preceding the price timestamp.
@@ -97,7 +97,7 @@ class PriceConverter:
         self.price_df.loc[mask_convert & mask_spot_assigned, "conversion_status"] = "conversion_done"
         self.price_df.loc[mask_convert & ~mask_spot_assigned, "conversion_status"] = "conversion_failed_no_spot_rate"
 
-    def calculate_new_prices(self):
+    def calculate_new_prices(self) -> None:
         """
         Vectorized calculation of new prices leveraging the 'conversion_status' column for efficiency.
 
@@ -136,7 +136,7 @@ class PriceConverter:
         # Assign NaN to new_price where conversion failed
         self.price_df.loc[mask_conversion_failed, "new_price"] = float("nan")
 
-    def export_results(self):
+    def export_results(self) -> None:
         """
         Save the DataFrame with new prices to output path.
         """

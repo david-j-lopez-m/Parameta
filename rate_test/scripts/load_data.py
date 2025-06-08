@@ -11,6 +11,7 @@ This includes:
 - Supporting both CSV and Parquet file types as specified in config.json
 """
 import pandas as pd
+from typing import Optional
 from scripts.project_root import add_project_root
 add_project_root()
 
@@ -26,10 +27,10 @@ class DataLoader:
     Attributes:
         config (Config): Stores the configuration used to load data.
     """
-    def __init__(self, config: Config):
+    def __init__(self, config: Config) -> None:
         self.config = config
 
-    def load_all(self):
+    def load_all(self) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         """
         Loads all data files (ccy, price, spot) and applies preprocessing where needed.
 
@@ -69,7 +70,7 @@ class DataLoader:
 
         return ccy_df, price_df, spot_df
 
-    def _load(self, cfg_data):
+    def _load(self, cfg_data: "ConfigData") -> pd.DataFrame:
         """
         Generic method to load a file using its type and read_args.
 
