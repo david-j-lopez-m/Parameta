@@ -22,7 +22,9 @@ def main():
     Main entry point to run the FX price conversion pipeline.
     Loads config, reads data, runs transformations, and saves results.
     """
-    start_time = time.perf_counter()
+    
+    # Uncomment to measure time elapsed
+    #start_time = time.perf_counter()
 
     config = Config(Path("config.json"))
     loader = DataLoader(config)
@@ -34,9 +36,10 @@ def main():
     converter.calculate_new_prices()
     converter.export_results()
 
-    end_time = time.perf_counter()
-    elapsed = end_time - start_time
-    print(f"Total execution time: {elapsed:.3f} seconds")
+    # Uncomment to measure time elapsed
+    # end_time = time.perf_counter()
+    # elapsed = end_time - start_time
+    # print(f"Total execution time: {elapsed:.3f} seconds")
 
 if __name__ == "__main__":
     main()
