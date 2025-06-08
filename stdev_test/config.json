@@ -1,0 +1,23 @@
+{
+  "data": {
+    "stdev_file": {
+      "path": "data/stdev_price_data.parq.gzip",
+      "type": "parquet",
+      "read_args": {}
+    }
+  },
+  "calculation_params": {
+    "start_calc": "2021-11-20 00:00:00",
+    "end_calc": "2021-11-23 09:00:00",
+    "date_format": "%Y-%m-%d %H:%M:%S",
+    "timestamp_col": "snap_time"
+  },
+  "output_file": {
+    "path": "data/output_stdev.csv",
+    "type": "csv",
+    "read_args": {
+      "sep": ",",
+      "encoding": "utf-8"
+    }
+  }
+}
