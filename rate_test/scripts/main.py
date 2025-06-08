@@ -24,7 +24,7 @@ def main():
     """
     
     # Uncomment to measure time elapsed
-    #start_time = time.perf_counter()
+    start_time = time.perf_counter()
 
     config = Config(Path("config.json"))
     loader = DataLoader(config)
@@ -37,9 +37,9 @@ def main():
     converter.export_results()
 
     # Uncomment to measure time elapsed
-    # end_time = time.perf_counter()
-    # elapsed = end_time - start_time
-    # print(f"Total execution time: {elapsed:.3f} seconds")
+    end_time = time.perf_counter()
+    elapsed = end_time - start_time
+    print(f"Total execution time: {elapsed:.3f} seconds")
 
 if __name__ == "__main__":
     main()

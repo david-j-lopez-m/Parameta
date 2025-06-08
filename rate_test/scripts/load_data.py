@@ -11,7 +11,7 @@ This includes:
 - Supporting both CSV and Parquet file types as specified in config.json
 """
 import pandas as pd
-from typing import Optional
+from typing import Tuple
 from scripts.project_root import add_project_root
 add_project_root()
 
